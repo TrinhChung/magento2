@@ -23,3 +23,17 @@ sudo chmod u+x bin/magento
 ## Seed Products
 
 - khó
+
+## Cài Module
+
+1. Tải zip và thêm vào thư mục `app/code` theo cấu trúc `app/code/<Vendor>/<Module>`
+2. Bật module: `sudo bin/magento module:enable <Vendor>_<Module>` (Vendor và tên Module phải giống trong file registration.php của module đó)
+3. Cài đặt module: `sudo bin/magento setup:upgrade`
+4. Xóa cache: `sudo bin/magento cache:clean && sudo bin/magento cache:flush`
+
+## Sửa Boolfly/ZaloPay
+
+- Sửa hết `Zend` trong `app/code/Boolfly/ZaloPay/Gateway/Http/Client/Zend.php` thành `Laminas`, chỉnh function call của Zend thành của Laminas
+- Sửa hết `Zend` trong `app/code/Boolfly/ZaloPay/etc/di.xml` thành `Laminas`
+- Cài lại module và xóa cache
+- TODO: Sửa lỗi trong `/Gateway/Request/`
