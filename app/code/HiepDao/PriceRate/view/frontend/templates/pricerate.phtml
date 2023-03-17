@@ -1,0 +1,39 @@
+<?php
+
+$rateData = $block->getPriceRate();
+$i = 1;
+
+?>
+
+<div class='container'>
+    <h3 style="margin-bottom: 10px;">Tỷ giá hối đoái từ Vietcombank vào <?= $block->escapeHtml($rateData->DateTime) ?></h3>
+    <table class="rate-table">
+
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Mã</th>
+                <th>Tên</th>
+                <th>Mua vào</th>
+                <th>Bán ra</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php foreach ($rateData->Exrate as $key => $rate) : ?>
+                <tr>
+                    <td><?= $i ?></td>
+                    <td><?= $block->escapeHtml($rate->attributes()['CurrencyCode']) ?></td>
+                    <td><?= $block->escapeHtml($rate->attributes()['CurrencyName']) ?></td>
+                    <td><?= $block->escapeHtml($rate->attributes()['Buy']) ?></td>
+                    <td><?= $block->escapeHtml($rate->attributes()['Transfer']) ?></td>
+                </tr>
+            <?php $i++;
+            endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+</script>
