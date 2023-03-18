@@ -37,3 +37,18 @@ sudo chmod u+x bin/magento
 - Sửa hết `Zend` trong `app/code/Boolfly/ZaloPay/etc/di.xml` thành `Laminas`
 - Cài lại module và xóa cache
 - TODO: Sửa lỗi trong `/Gateway/Request/`
+
+php bin/magento setup:upgrade
+
+php bin/magento setup:di:compile
+
+php bin/magento setup:static-content:deploy -f
+
+php bin/magento cache:flush
+
+chmod -R 777 var/ pub/ generated/
+
+vnpay
+URL: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+TerminalCode: 21QDD3BL
+hashcode: HUDWOOBYHTAZMDMIWUESQIJEOSPKVUPD
