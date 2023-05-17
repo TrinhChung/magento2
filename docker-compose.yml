@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  php:
+    build: ./
+    # restart: always
+    working_dir: /var/www/html/magento
+    volumes:
+      - ./:/var/www/html/magento
+    expose:
+      - 9000
+    links:
+      - mysql
+      - elasticsearch
+  nginx:
+    image: nginx:latest
+    # restart: always
+    volumes:
+      - ./:/var/www/html/magento # Để lấy magento conf example trong folder này
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+    links:
+      - php
+  mysql:
+    image: mysql:8.0.33
+    environment:
+      MYSQL_ROOT_PASSWORD: 1111
+      MYSQL_DATABASE: magento
+      MYSQL_USER: magento
+      MYSQL_PASSWORD: 1111
+      MYSQL_INITDB_SKIP_TZINFO: 1
+    volumes:
+      - ./mysql/mysql-custom.cnf:/etc/mysql/conf.d/mysql-custom.cnf 
+      - ./mysql/magento.sql:/docker-entrypoint-initdb.d/magento.sql 
+    expose:
+      - 3306
+  elasticsearch:
+    build: ./elasticsearch
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    expose:
+      - 9200
+    # volumes:
+    #   - elasticsearch-data:/usr/share/elasticsearch/data
