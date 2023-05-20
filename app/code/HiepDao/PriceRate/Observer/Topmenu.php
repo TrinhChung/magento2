@@ -10,9 +10,9 @@ class Topmenu implements ObserverInterface
         $menu = $observer->getMenu();
         $tree = $menu->getTree();
         $data = [
-            'name'      => __('Price Rates'),
+            'name'      => __('Tỷ giá tiền tệ'),
             'id'        => 'pricerate',
-            'url'       => 'pricerate',
+            'url'       => '/pricerate',
             'is_active' => false
         ];
         $node = new Node($data, 'id', $tree, $menu);

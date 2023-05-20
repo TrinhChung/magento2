@@ -10,9 +10,9 @@ class Topmenu implements ObserverInterface
         $menu = $observer->getMenu();
         $tree = $menu->getTree();
         $data = [
-            'name'      => __('Weather'),
+            'name'      => __('Thời tiết'),
             'id'        => 'weather',
-            'url'       => 'weather',
+            'url'       => '/weather',
             'is_active' => false
         ];
         $node = new Node($data, 'id', $tree, $menu);
