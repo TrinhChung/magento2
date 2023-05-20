@@ -1,28 +1,30 @@
 <?php
 
-$rateData = $block->getPriceRate();
+$newsData = $block->getPriceRate();
 $i = 1;
 
 ?>
 
 <div class='container'>
-    <h3 style="margin-bottom: 10px;">Tỷ giá hối đoái từ Vietcombank vào <?= $block->escapeHtml($rateData->DateTime) ?></h3>
-    <table class="rate-table">
-
-        <tbody>
-            <?php foreach ($rateData->channel->item as $key => $rate) : ?>
-                <tr>
-                    <td><?= $i ?></td>
-                    <td><?= $block->escapeHtml($rate->title) ?></td>
-                    <td><?= $rate->description ?></td>
-                    <td><?= $block->escapeHtml($rate->pubDate) ?></td>
-                    <td><a href = "<?= $block->escapeHtml($rate->link) ?>" target = '_blank'>link</a></td>
-                    <td><?= $block->escapeHtml($rate->guid) ?></td>
-                </tr>
-            <?php $i++;
-            endforeach; ?>
-        </tbody>
-    </table>
+    <?php foreach ($newsData->channel->item as $key => $news) : ?>
+        <div class="item" onclick="window.open('<?= $block->escapeHtml($news->link) ?>', '_blank').focus()">
+            <div class="item-image">
+                <?= $news->image ?>
+            </div>
+            <div class="item-content">
+                <div class="item-title">
+                    <?= $block->escapeHtml($news->title) ?>
+                </div>
+                <div class="item-description">
+                    <?= $news->realDescription ?>
+                </div>
+                <div class="item-pubDate">
+                    <?= $block->escapeHtml($news->pubDate) ?>
+                </div>
+            </div>
+        </div>
+    <?php $i++;
+    endforeach; ?>
 </div>
 
 <script>

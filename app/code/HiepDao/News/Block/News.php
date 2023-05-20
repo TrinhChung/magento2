@@ -28,6 +28,15 @@ class News extends Template
             $xml_text = $this->curl->getBody();
 
             $xml = simplexml_load_string($xml_text);
+            for ($i = 0; $i < count($xml->channel->item); $i++) {
+
+                $split = explode("</br>", $xml->channel->item[$i]->description);
+                if (count($split) > 1) {
+                    $xml->channel->item[$i]->image = $split[0];
+                    $xml->channel->item[$i]->realDescription = $split[1];
+                }
+            }
+
             return $xml;
         } catch (\Exception $e) {
             return $e->getMessage();

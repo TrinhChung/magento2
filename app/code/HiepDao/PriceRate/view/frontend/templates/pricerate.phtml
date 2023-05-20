@@ -13,6 +13,7 @@ $i = 1;
             <tr>
                 <th>STT</th>
                 <th>Mã</th>
+                <th>Quốc gia</th>
                 <th>Tên</th>
                 <th>Mua vào</th>
                 <th>Bán ra</th>
@@ -24,6 +25,7 @@ $i = 1;
                 <tr>
                     <td><?= $i ?></td>
                     <td><?= $block->escapeHtml($rate->attributes()['CurrencyCode']) ?></td>
+                    <td><img src="https://wise.com/public-resources/assets/flags/rectangle/<?php echo strtolower($block->escapeHtml($rate->attributes()['CurrencyCode'])); ?>.png" style="width: 25;height:auto;"/></td>
                     <td><?= $block->escapeHtml($rate->attributes()['CurrencyName']) ?></td>
                     <td><?= $block->escapeHtml($rate->attributes()['Buy']) ?></td>
                     <td><?= $block->escapeHtml($rate->attributes()['Transfer']) ?></td>

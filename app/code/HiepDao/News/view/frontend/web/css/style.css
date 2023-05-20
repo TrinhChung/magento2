@@ -1,13 +1,36 @@
 .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-table, th, td {
-    border: 1px solid #000;
+.item {
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
 }
 
-.rate-table {
-    border-collapse: collapse;
+.item-image {
+    margin-right: 10px;
+    flex: 1;
+}
+
+.item-content {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.item-title {
+    font-weight: bold;
+}
+
+.item-description {
+    margin-top: 5px;
+}
+
+.item-pubDate {
+    margin-top: auto;
 }
