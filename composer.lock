@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8146107f5215900d0c6a26fb71a630a",
+    "content-hash": "053652e50ef556abbbe10a6733e8a60b",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1581,6 +1581,68 @@
                 }
             ],
             "time": "2022-03-20T21:55:58+00:00"
+        },
+        {
+            "name": "hybridauth/hybridauth",
+            "version": "v3.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hybridauth/hybridauth.git",
+                "reference": "a950212d2f52df5b0662cd520b0043c4ee6d0f1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/a950212d2f52df5b0662cd520b0043c4ee6d0f1b",
+                "reference": "a950212d2f52df5b0662cd520b0043c4ee6d0f1b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^6.5 || ^8.0"
+            },
+            "suggest": {
+                "firebase/php-jwt": "Needed to support Apple provider",
+                "phpseclib/phpseclib": "Needed to support Apple provider"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Hybridauth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Miled",
+                    "email": "hybridauth@gmail.com"
+                }
+            ],
+            "description": "PHP Social Authentication Library",
+            "homepage": "https://hybridauth.github.io",
+            "keywords": [
+                "Authentication",
+                "OpenId",
+                "api",
+                "apple",
+                "authorization",
+                "facebook",
+                "google",
+                "oauth",
+                "social",
+                "twitter"
+            ],
+            "support": {
+                "gitter": "https://gitter.im/hybridauth/hybridauth",
+                "issues": "https://github.com/hybridauth/hybridauth/issues",
+                "source": "https://github.com/hybridauth/hybridauth/tree/v3.9.0"
+            },
+            "time": "2023-03-12T09:30:26+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -3312,6 +3374,76 @@
             "time": "2021-10-13T16:02:43+00:00"
         },
         {
+            "name": "laminas/laminas-serializer",
+            "version": "2.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-serializer.git",
+                "reference": "c4ceeb080f8d080006616072d2926949b3e5b9ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-serializer/zipball/c4ceeb080f8d080006616072d2926949b3e5b9ea",
+                "reference": "c4ceeb080f8d080006616072d2926949b3e5b9ea",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-json": "^3.1",
+                "laminas/laminas-stdlib": "^3.2",
+                "php": "~8.0.0 || ~8.1.0 || ~8.2.0"
+            },
+            "conflict": {
+                "zendframework/zend-serializer": "*"
+            },
+            "require-dev": {
+                "laminas/laminas-coding-standard": "~2.4.0",
+                "laminas/laminas-math": "~3.6.0",
+                "laminas/laminas-servicemanager": "~3.19.0",
+                "phpunit/phpunit": "~9.5.25"
+            },
+            "suggest": {
+                "laminas/laminas-math": "(^3.3) To support Python Pickle serialization",
+                "laminas/laminas-servicemanager": "(^3.6) To support plugin manager support"
+            },
+            "type": "library",
+            "extra": {
+                "laminas": {
+                    "component": "Laminas\\Serializer",
+                    "config-provider": "Laminas\\Serializer\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laminas\\Serializer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Serialize and deserialize PHP structures to a variety of representations",
+            "homepage": "https://laminas.dev",
+            "keywords": [
+                "laminas",
+                "serializer"
+            ],
+            "support": {
+                "chat": "https://laminas.dev/chat",
+                "docs": "https://docs.laminas.dev/laminas-serializer/",
+                "forum": "https://discourse.laminas.dev",
+                "issues": "https://github.com/laminas/laminas-serializer/issues",
+                "rss": "https://github.com/laminas/laminas-serializer/releases.atom",
+                "source": "https://github.com/laminas/laminas-serializer"
+            },
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2022-10-16T14:51:10+00:00"
+        },
+        {
             "name": "laminas/laminas-server",
             "version": "2.11.1",
             "source": {
@@ -4764,6 +4896,181 @@
                 "source": "https://github.com/magento/magento-zend-pdf/tree/1.16.0"
             },
             "time": "2022-09-22T18:56:44+00:00"
+        },
+        {
+            "name": "mageplaza/magento-2-social-login",
+            "version": "4.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-social-login.git",
+                "reference": "c5a5541630edcbd0bc476b640bdb06796e12b616"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-social-login/zipball/c5a5541630edcbd0bc476b640bdb06796e12b616",
+                "reference": "c5a5541630edcbd0bc476b640bdb06796e12b616",
+                "shasum": ""
+            },
+            "require": {
+                "hybridauth/hybridauth": "^3.8.2",
+                "mageplaza/module-core": "^1.5.1"
+            },
+            "require-dev": {
+                "roave/security-advisories": "dev-master"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\SocialLogin\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Magento 2 Social Login extension is designed for quick login to your Magento 2 store without procesing complex register steps",
+            "keywords": [
+                "Amazon Login",
+                "Facebook login",
+                "FourSquare Login",
+                "Google login",
+                "LinkedIn Login",
+                "Microsoft Live Login",
+                "Social Login",
+                "Twitter login",
+                "Yahoo Login",
+                "facebook",
+                "google",
+                "login",
+                "magento 2",
+                "magento 2 social login",
+                "mageplaza",
+                "social proof",
+                "twitter"
+            ],
+            "support": {
+                "issues": "https://github.com/mageplaza/magento-2-social-login/issues",
+                "source": "https://github.com/mageplaza/magento-2-social-login/tree/v4.1.9"
+            },
+            "time": "2023-02-14T15:04:24+00:00"
+        },
+        {
+            "name": "mageplaza/module-core",
+            "version": "1.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/module-core.git",
+                "reference": "569d041b2e6722a48538bcf172f1f0ec05d1be8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/569d041b2e6722a48538bcf172f1f0ec05d1be8a",
+                "reference": "569d041b2e6722a48538bcf172f1f0ec05d1be8a",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Core\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Mageplaza Core for Magento 2",
+            "support": {
+                "issues": "https://github.com/mageplaza/module-core/issues",
+                "source": "https://github.com/mageplaza/module-core/tree/v1.5.3"
+            },
+            "time": "2023-04-14T01:57:43+00:00"
+        },
+        {
+            "name": "mageplaza/module-smtp",
+            "version": "4.7.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-smtp.git",
+                "reference": "429f4da27b58c9bd43e92a57c9f340543b7993db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-smtp/zipball/429f4da27b58c9bd43e92a57c9f340543b7993db",
+                "reference": "429f4da27b58c9bd43e92a57c9f340543b7993db",
+                "shasum": ""
+            },
+            "require": {
+                "mageplaza/module-core": "^1.5.1"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Smtp\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "SMTP Extension for Magento 2 helps the owner of store simply install SMTP (Simple Mail Transfer Protocol) server which transmits the messages into codes or numbers",
+            "keywords": [
+                "Facebook ADS",
+                "Marketing Automation",
+                "Messenger",
+                "email",
+                "email marketing",
+                "email settings",
+                "facebook",
+                "gmail smtp",
+                "google ads",
+                "magento 2",
+                "magento 2 smtp",
+                "magento smtp",
+                "mageplaza",
+                "sms",
+                "sms marketing",
+                "smtp",
+                "web push notification",
+                "whatsapp"
+            ],
+            "support": {
+                "issues": "https://github.com/mageplaza/magento-2-smtp/issues",
+                "source": "https://github.com/mageplaza/magento-2-smtp/tree/v4.7.5"
+            },
+            "time": "2023-01-31T07:18:09+00:00"
         },
         {
             "name": "monolog/monolog",
