@@ -1,3 +1,19 @@
+# Cách chạy docker
+*Đảm bảo port 80,3306,9200 của máy host không có service nào đang listen*
+1. cd vào thư mục hiện tại
+2. Chạy `docker compose up -d` hoặc câu lệnh tương ứng tùy hệ điều hành
+3. Container mysql sẽ khởi chạy và tạo database theo file .sql nên sẽ mất một khoảng thời gian. Kiểm tra bằng cách vào mysql container và đảm bảo database magento có 352 table (`show tables;`).
+Khi đủ bảng rồi thì container php mới kết nối được tới mysql.
+4. Chỉnh lại base url của web vì hiện tại đang là tên miền shoes.recurup.com
+```
+# Vào mysql container
+UPDATE core_config_data SET VALUE = 'http://127.0.0.1/' WHERE path = 'web/unsecure/base_url';
+```
+5. Khi đã kết nối được tới mysql thì từ trong container php vào folder `/var/www/html/magento` và chạy `bin/magento setup:upgrade`
+6. Truy cập 127.0.0.1 từ máy host để kiểm tra kết quả.
+
+---
+
 # Setup
 
 1. Clone repo
@@ -61,7 +77,7 @@ hashcode: HUDWOOBYHTAZMDMIWUESQIJEOSPKVUPD
 - Chạy:
 ```bash
 # Máy host
-docker-compose up -d
+docker compose up -d
 
 # Container php
 # Check connection tới mysql container

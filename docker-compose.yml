@@ -35,6 +35,8 @@ services:
       - ./mysql/magento.sql:/docker-entrypoint-initdb.d/magento.sql 
     expose:
       - 3306
+    ports:
+      - 3306:3306
   elasticsearch:
     build: ./elasticsearch
     environment:
@@ -42,5 +44,7 @@ services:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     expose:
       - 9200
+    ports:
+      - 9200:9200
     # volumes:
     #   - elasticsearch-data:/usr/share/elasticsearch/data
