@@ -9,7 +9,14 @@ Khi đủ bảng rồi thì container php mới kết nối được tới mysql
 # Vào mysql container
 UPDATE core_config_data SET VALUE = 'http://127.0.0.1/' WHERE path = 'web/unsecure/base_url';
 ```
-5. Khi đã kết nối được tới mysql thì từ trong container php vào folder `/var/www/html/magento` và chạy `bin/magento setup:upgrade`
+5. Khi đã kết nối được tới mysql thì từ trong container php vào folder `/var/www/html/magento` và chạy:
+```bash
+bin/magento setup:install --base-url=http://127.0.0.1/ --db-host=mysql --db-name=magento --db-user=magento --db-password=1111 --admin-firstname=Magento --admin-lastname=Admin --admin-email=admin@example.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --search-engine=elasticsearch7 --elasticsearch-host=elasticsearch --elasticsearch-port=9200 --elasticsearch-index-prefix=magento2 --elasticsearch-timeout=15 --backend-frontname=admin
+
+rm -rf var/cache/* var/page_cache/* var/generation/*
+
+bin/magento setup:di:compile
+```
 6. Truy cập 127.0.0.1 từ máy host để kiểm tra kết quả.
 
 ---
