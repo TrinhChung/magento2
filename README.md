@@ -1,24 +1,25 @@
 # Cách chạy docker
-*Đảm bảo port 80,3306,9200 của máy host không có service nào đang listen*
+*Đảm bảo port 80 của máy host không có service nào đang listen*
+
 1. cd vào thư mục hiện tại
-2. Chạy `docker compose up -d` hoặc câu lệnh tương ứng tùy hệ điều hành
-3. Container mysql sẽ khởi chạy và tạo database theo file .sql nên sẽ mất một khoảng thời gian. Kiểm tra bằng cách vào mysql container và đảm bảo database magento có 352 table (`show tables;`).
+2. Chạy `docker compose up -d`
+3. Container mysql sẽ khởi chạy và tạo database theo file .sql nên sẽ mất một khoảng thời gian (5-20p). Kiểm tra bằng cách vào mysql container và đảm bảo database magento có 352 table (`show tables;`).
 Khi đủ bảng rồi thì container php mới kết nối được tới mysql.
 4. Chỉnh lại base url của web vì hiện tại đang là tên miền shoes.recurup.com
 ```
 # Vào mysql container
-UPDATE core_config_data SET VALUE = 'http://127.0.0.1/' WHERE path = 'web/unsecure/base_url';
+UPDATE core_config_data SET VALUE = 'http://127.0.0.1/' WHERE value LIKE '%recurup%';
 ```
 5. Khi đã kết nối được tới mysql thì từ trong container php vào folder `/var/www/html/magento` và chạy:
 ```bash
-bin/magento setup:install --base-url=http://127.0.0.1/ --db-host=mysql --db-name=magento --db-user=magento --db-password=1111 --admin-firstname=Magento --admin-lastname=Admin --admin-email=admin@example.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --search-engine=elasticsearch7 --elasticsearch-host=elasticsearch --elasticsearch-port=9200 --elasticsearch-index-prefix=magento2 --elasticsearch-timeout=15 --backend-frontname=admin
-
-rm -rf var/cache/* var/page_cache/* var/generation/*
-
-bin/magento setup:di:compile
+bin/magento cache:clean
 ```
-6. Truy cập 127.0.0.1 từ máy host để kiểm tra kết quả.
+6. Chuyển host elasticsearch về đúng container (cần thiết để tìm sản phẩm trong danh mục):
+- Đăng nhập `127.0.0.1/admin` với tài khoản `admin:admin123`
+- Vào Stores->Configuration->Catalog->Catalog Search và đổi "Elasticsearch Server Hostname" thành `elasticsearch`
+- Test Connection thành công thì Save config.
 
+*Một vài chức năng như đăng nhập bên thứ 3 sẽ không hoạt động do cần đăng ký callback url,...*
 ---
 
 # Setup
