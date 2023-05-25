@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
 <page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <!-- <title>TỶ GIÁ TIỀN TỆ</title> -->
+        <title>Tỷ giá tiền tệ</title>
         <css src="HiepDao_PriceRate::css/style.css" />
     </head>
+
+    <referenceBlock name="page.main.title" remove="true" />
 
     <referenceBlock name='content'>
         <block class="HiepDao\PriceRate\Block\PriceRate" name="hiepdao_pricerate" template="pricerate.phtml"/>
